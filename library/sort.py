@@ -1,23 +1,20 @@
 from .file_ops import load_library
+import locale
 
-def sort_by_author():
+locale.setlocale(locale.LC_ALL, 'uk_UA.UTF-8')
+
+def get_sorted_authors():
     library = load_library()
-    for author in sorted(library.keys()):
-        print(f"\n{author}:")
-        for book in library[author]:
-            print(f"   - {book}")
+    return sorted(library.keys(), key=locale.strxfrm)
 
-
-def sort_by_book():
+def get_sorted_books():
     library = load_library()
-    books = []
-    for author, works in library.items():
-        if isinstance(works, list):
-            for book in works:
-                books.append((book, author))
+    books_list = []
+    for author, books in library.items():
+        if isinstance(books, list):
+            for book in books:
+                books_list.append((book, author))
         else:
-            books.append((works, author))
-
-    for book, author in sorted(books, key=lambda x: x[0]):
-        print(f"{book} — {author}")
-         
+            books_list.append((books, author))
+    books_list.sort(key=lambda x: locale.strxfrm(x[0]))
+    return books_list
