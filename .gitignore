@@ -1,33 +1,24 @@
-# Byte-compiled / optimized / DLL files
+# Python cache files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environments
+# Віртуальне середовище
+.venv/
 venv/
 env/
-.venv/
-.env/
+ENV/
 
-# Distribution / packaging
-build/
-dist/
-*.egg-info/
-*.egg
-*.whl
-
-# PyInstaller
-*.spec
-
-# VS Code
-.vscode/
-
+що 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Python profiler
-.prof
+# Log файли
+*.log
